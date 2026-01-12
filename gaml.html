@@ -1,1 +1,124 @@
-جميل عادل السفياني 
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>قلبي لكِ</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle at top, #ffafbd, #ffc3a0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 35px;
+    width: 330px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.heart-lock {
+    font-size: 65px;
+    animation: beat 1.5s infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+h2 {
+    color: #ff4f7b;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    text-align: center;
+}
+
+button {
+    margin-top: 15px;
+    background: linear-gradient(135deg, #ff4f7b, #ff758c);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#loveContent {
+    display: none;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+p {
+    color: #444;
+    line-height: 1.9;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="lockBox">
+    <div class="heart-lock">💖🔒</div>
+    <h2>قفل القلب</h2>
+    <p>هذا المكان لكِ وحدك 🤍</p>
+    <input type="password" id="password" placeholder="كلمة السر">
+    <button onclick="unlock()">افتحي قلبي</button>
+</div>
+
+<div class="card" id="loveContent">
+    <div class="heart-lock">💗</div>
+    <h2>حبيبتي</h2>
+    <p>
+        كل نبضة في قلبي تنادي اسمك،  
+        وإذا زعلتك يوم فأنا أعتذر من أعماقي،  
+        لأني أحبك حب صادق وما أقدر أشوفك زعلانة،  
+        وجودك أمان، وضحكتك حياة،  
+        وأنا لك وبس 🤍
+    </p>
+</div>
+
+<script>
+function unlock() {
+    const secret = "love"; // ← غير كلمة السر هنا
+    const entered = document.getElementById("password").value;
+
+    if (entered === secret) {
+        document.getElementById("lockBox").style.display = "none";
+        document.getElementById("loveContent").style.display = "block";
+    } else {
+        alert("القلب ما ينفتح إلا لكِ 💔");
+    }
+}
+</script>
+
+</body>
+</html>
