@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>موقع خاص</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.box {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 20px;
+    width: 92%;
+    max-width: 520px;
+    animation: fade 1.5s;
+}
+input, button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+    font-size: 16px;
+}
+button {
+    background: #e94560;
+    color: #fff;
+    cursor: pointer;
+}
+.exit {
+    background: #555;
+}
+.page {
+    display: none;
+}
+h1 {
+    color: #ffb6c1;
+}
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- صفحة كلمة المرور -->
+<div class="box page" id="login" style="display:block;">
+    <h1>🔐 تفضّل يا أمين إلى الموقع</h1>
+    <p>هذا الموقع مخصص لك فقط</p>
+    <input type="password" id="password" placeholder="أدخل كلمة المرور">
+    <button onclick="check()">دخول</button>
+    <p id="error" style="color:#ff9aa2;"></p>
+</div>
+
+<!-- صفحة الترحيب -->
+<div class="box page" id="welcome">
+    <h1>مرحبًا بك 🤍</h1>
+    <p>
+        مرحبًا بك يا <strong>أمين السفياني</strong><br><br>
+
+        في هذا الموقع الذي قام بتصميمه  
+        <strong>جميل السفياني</strong>  
+        خصيصًا لك،  
+        لا لشيء…  
+        إلا لأنك تستحق،  
+        ولأن السفر حين يكون بعيدًا  
+        يحتاج إلى كلمة قريبة.<br><br>
+
+        هنا لا يوجد وقت،  
+        ولا مسافة،  
+        فقط رسالة كُتبت  
+        لتقول لك:  
+        أنت حاضر حتى وأنت بعيد.
+    </p>
+    <button onclick="goToGoodbye()">متابعة</button>
+</div>
+
+<!-- صفحة الوداع -->
+<div class="box page" id="goodbye">
+    <h1>رسالة وداع 🕊️</h1>
+    <p>
+        قبل أن تضغط زر الخروج،  
+        خذ معك هذه الكلمات،  
+        فهي ليست وداعًا بقدر ما هي  
+        تذكير بأنك لست وحدك.<br><br>
+
+        السفر ليس فراقًا،  
+        بل اختبار صبر،  
+        واختبار وفاء،  
+        واختبار قلوب تعرف  
+        من يبقى فيها مهما طال الغياب.<br><br>
+
+        إن مرّت عليك أيام ثقيلة،  
+        وتعبت من الطرق،  
+        فتذكر أن هناك من يتمنى  
+        لو يختصر لك المسافة  
+        ويضع الطمأنينة بين يديك.<br><br>
+
+        <em>
+        وإن طال دربُك فالقلوبُ شهودُ  
+        على ودٍّ بقى رغم الحدودِ  
+        <br>
+        سنلتقي… فكل فراقٍ مؤقتٌ  
+        وكل الغيابِ إلى رجوعٍ يعودُ
+        </em>
+        <br><br>
+
+        <em>
+        لا البعدُ ينسي ولا الأيامُ تمحو  
+        ولا المسافاتُ تكسر العهود  
+        <br>
+        فالقلبُ إن صدقَ الهوى يومًا  
+        ظلّ وفيًا ما تغيّرت الوجود
+        </em>
+        <br><br>
+
+        امضِ وأنت تعلم،  
+        أن لك مكانًا ثابتًا  
+        لا يزاحمه أحد،  
+        وذكرى طيبة  
+        لا تُمحى بالغياب.<br><br>
+
+        إن عدت يومًا،  
+        فستجد الباب كما تركته،  
+        مفتوحًا…  
+        والود كما هو،  
+        صادقًا،  
+        ونقيًا.<br><br>
+
+        في أمان الله يا أمين،  
+        وليحفظك الله في حلك وترحالك،  
+        وإلى لقاءٍ أقرب  
+        مما تتخيل 🤍
+    </p>
+
+    <button class="exit" onclick="exitSite()">خروج</button>
+</div>
+
+<script>
+function check() {
+    var pass = document.getElementById("password").value;
+    var correct = "1234"; // ← غيّر كلمة المرور هنا
+    if (pass === correct) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("welcome").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "كلمة المرور غير صحيحة";
+    }
+}
+
+function goToGoodbye() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("goodbye").style.display = "block";
+}
+
+function exitSite() {
+    alert("شكرًا لزيارتك 🤍\nنتمنى لك السلامة دائمًا");
+    window.close();
+}
+</script>
+
+</body>
+</html>
